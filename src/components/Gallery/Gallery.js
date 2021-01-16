@@ -56,11 +56,20 @@ class Gallery extends React.Component {
     this.getImages(props.tag);
   }
 
+  deletePicture = (id) => {
+    const newArray = this.state.images.filter(pic => pic.id !== id)
+    this.setState({images: newArray})
+  }
+
+  rotatePicture = (e) => {
+    console.log(e)
+  }
+
   render() {
     return (
       <div className="gallery-root">
         {this.state.images.map(dto => {
-          return <Image key={'image-' + dto.id} dto={dto} galleryWidth={this.state.galleryWidth}/>;
+          return <Image key={'image-' + dto.id} dto={dto} rotatePicture={this.rotatePicture} deletePicture={this.deletePicture} galleryWidth={this.state.galleryWidth}/>;
         })}
       </div>
     );
