@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Image from '../Image';
 import './Gallery.scss';
+import Modal from 'react-modal'
 
 class Gallery extends React.Component {
   static propTypes = {
@@ -13,7 +14,8 @@ class Gallery extends React.Component {
     super(props);
     this.state = {
       images: [],
-      galleryWidth: this.getGalleryWidth()
+      galleryWidth: this.getGalleryWidth(),
+      expanded: false
     };
   }
 
@@ -24,6 +26,7 @@ class Gallery extends React.Component {
       return 1000;
     }
   }
+
   getImages(tag) {
     const getImagesUrl = `services/rest/?method=flickr.photos.search&api_key=522c1f9009ca3609bcbaf08545f067ad&tags=${tag}&tag_mode=any&per_page=100&format=json&nojsoncallback=1`;
     const baseUrl = 'https://api.flickr.com/';
@@ -60,17 +63,46 @@ class Gallery extends React.Component {
     const newArray = this.state.images.filter(pic => pic.id !== id)
     this.setState({images: newArray})
   }
-
-  rotatePicture = (e) => {
-    console.log(e)
+  
+  expandPicture = (dto) => {
+    this.state.expanded
+    ?
+    this.setState({expanded: !this.state.expanded, dto: dto})
+    :
+    this.setState({expanded: !this.state.expanded, dto: dto})
   }
+
+  customStyles = {
+    content : {
+      backgroundColor: '#222222',
+      borderRadius: '13px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
+    }
+  };
 
   render() {
     return (
       <div className="gallery-root">
         {this.state.images.map(dto => {
-          return <Image key={'image-' + dto.id} dto={dto} rotatePicture={this.rotatePicture} deletePicture={this.deletePicture} galleryWidth={this.state.galleryWidth}/>;
+          return <Image key={'image-' + dto.id} dto={dto} expandPicture={this.expandPicture} deletePicture={this.deletePicture} galleryWidth={this.state.galleryWidth}/>;
         })}
+          
+          {/* Adding modal for expanded image */}
+          <Modal
+            isOpen={this.state.expanded}
+            onRequestClose={this.expandPicture.bind(this)}
+            style={this.customStyles}
+            contentLabel="Example Modal"
+          >
+            <div onClick={this.expandPicture.bind(this)} className='modal-close-button'>X</div>
+            {this.state.dto && 
+              <div className="modal-picture"> 
+                <Image key={'image-' + this.state.dto.id} dto={this.state.dto} expanded={this.state.expanded}/> 
+              </div>
+            }
+          </Modal>
       </div>
     );
   }

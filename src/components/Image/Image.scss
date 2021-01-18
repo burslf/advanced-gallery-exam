@@ -1,15 +1,18 @@
 .image-root {
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center center;
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
   position: relative;
-  border: 1px solid white;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ffffff;
+  justify-self: center;
 
-  > div {
+   .tools-div {
     visibility: hidden;
-    background: rgba(0, 0, 0, 0.7);
     cursor: pointer;
     position: absolute;
     width: 100%;
@@ -27,7 +30,7 @@
     justify-content: center;
   }
 
-  &:hover > div {
+  &:hover > .tools-div {
     visibility: visible;
   }
 
@@ -40,6 +43,7 @@
     cursor: pointer;
     padding: 12px;
     margin: 3px;
+    background: rgba(0, 0, 0, 0.7);
 
     &:hover {
       color: white;
@@ -47,4 +51,3 @@
     }
   }
 }
-
