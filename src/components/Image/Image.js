@@ -56,9 +56,10 @@ class Image extends React.Component {
           transform: `rotate(${this.state.rotation}deg)`
         }}
         onClick={() => this.props.expandPicture(this.props.dto)}
-      >
+    >
 
       </div>
+      <span className="more">...</span>
         <div
             className='tools-div'
             // style={{
