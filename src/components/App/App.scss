@@ -28,7 +28,7 @@ body, html {
   display: flex;
 }
 .logo h2 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
   margin-top: 0;
   margin-bottom: 0;
   font-size: 35px;
@@ -49,4 +49,20 @@ body, html {
   font-size: 40px;
   padding: 0 16px;
   box-sizing: border-box;
+}
+
+.footer {
+   color: white;
+   position: absolute;
+   bottom: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 19px;
+   width: 100%;
+   height: 35px;
+}
+
+.footer-icon {
+  margin-right: 20px;
 }
