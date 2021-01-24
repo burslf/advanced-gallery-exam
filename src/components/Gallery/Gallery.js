@@ -114,6 +114,7 @@ class Gallery extends React.Component {
     },
     content : {
       width: '85%',
+      maxWidth: '900px',
       height: '80%',
       padding: '0',
       border: 'none',
