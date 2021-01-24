@@ -1,3 +1,15 @@
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.image-container:hover > .tools-div {
+  visibility: visible;
+}
 .image-root {
   background-size: contain;
   background-repeat: no-repeat;
@@ -6,48 +18,71 @@
   vertical-align: top;
   box-sizing: border-box;
   position: relative;
-  height: 100%;
+  height: 80%;
   width: 100%;
-  border: 1px solid #ffffff;
-  justify-self: center;
-
-   .tools-div {
-    visibility: hidden;
-    cursor: pointer;
-    position: absolute;
+  border: 2px solid #8a8a8a;
+  border-radius: 4px;
+  cursor: pointer;
+}
+  .tools-div {
+    border-radius: 4px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.686);
+    height: 40px;
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    text-align: center;
     box-sizing: border-box;
-    white-space: pre;
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
-
-  &:hover > .tools-div {
-    visibility: visible;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0px;
+    visibility: hidden;
   }
 
   .image-icon {
-    font-size: 20px;
-    vertical-align: middle;
-    border: 1px solid #ccc;
-    color: #ccc;
-    border-radius: 5px;
     cursor: pointer;
-    padding: 12px;
-    margin: 3px;
-    background: rgba(0, 0, 0, 0.7);
-
-    &:hover {
-      color: white;
-      border-color: white;
-    }
+    color: #000 !important;
   }
-}
+
+//   justify-self: center;
+// }
+//   .tools-div {
+//     visibility: hidden;
+//     cursor: pointer;
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     top: 150px;
+//     left: 0;
+//     color: white;
+//     padding: 15px;
+//     text-align: center;
+//     text-align: center;
+//     box-sizing: border-box;
+//     white-space: pre;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
+
+//   &:hover > .tools-div {
+//     visibility: visible;
+//   }
+
+//   .image-icon {
+//     font-size: 20px;
+//     vertical-align: middle;
+//     border: 1px solid #ccc;
+//     color: #ccc;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     padding: 12px;
+//     margin: 3px;
+//     background: rgba(0, 0, 0, 0.7);
+//   }
+//     &:hover {
+//       color: white;
+//       border-color: white;
+//     }
+  
+
