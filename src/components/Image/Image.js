@@ -17,7 +17,8 @@ class Image extends React.Component {
       rotation: 0,
       imageToDrag: null,
       imageToDrop: null,
-      blackAndWhite: false
+      blackAndWhite: false,
+      enter: false
     };
   }
 
@@ -36,7 +37,14 @@ class Image extends React.Component {
   componentDidMount() {
     // this.setState({position: {x: }})
   }
-
+  setBlack = () => {
+    this.setState({blackAndWhite: true})
+    this.props.setBlack()
+  }
+  unsetBlack = () => {
+    this.setState({blackAndWhite: false})
+    this.props.unsetBlack()
+  }
   render() {
     return (
       <div className="image-container">
@@ -46,14 +54,19 @@ class Image extends React.Component {
         }}
         onDragEnter={(e)=> {
           this.props.onDrop(e)
+          this.setState({enter: true})
+          setTimeout(() => {
+            this.setState({enter: false})
+          }, 550)
+
         }}
         onDragEnd={(e) => {
           this.props.dragAndDrop(e)
         }}
+
         draggable={true}
-        className="image-root"
+        className={`image-root ${this.state.enter && 'drag-over'}`}
         style={{
-          // -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
           filter: this.state.blackAndWhite ? 'grayscale(100%)': 'none',
           backgroundImage: `url(${this.urlFromDto(this.props.dto)})`,
           transform: `rotate(${this.state.rotation}deg)`
@@ -67,10 +80,9 @@ class Image extends React.Component {
             className='tools-div'
         >
           <FontAwesome className="image-icon" onClick={() => this.rotatePicture()} name="sync-alt" title="rotate"/>
-          {!this.state.blackAndWhite && <div className="image-icon black-and-white unblack" onClick={() => this.setState({blackAndWhite: true})}> <span> B&#38;W</span></div>}
-          {this.state.blackAndWhite && <div className="image-icon black-and-white" onClick={() => this.setState({blackAndWhite: false})}> <span> B&#38;W</span></div>}
+          {!this.state.blackAndWhite && <div className="image-icon black-and-white unblack" onClick={() => this.setBlack()}> <span> B&#38;W</span></div>}
+          {this.state.blackAndWhite && <div className="image-icon black-and-white" onClick={() => this.unsetBlack()}> <span> B&#38;W</span></div>}
           <FontAwesome className="image-icon" onClick={() => this.props.deletePicture(this.props.dto.id)} name="trash-alt" title="delete"/>
-          {/* <FontAwesome className="image-icon" onClick={() => this.props.expandPicture(this.props.dto)} name="expand" title="expand"/> */}
         </div>
       </div>
     );

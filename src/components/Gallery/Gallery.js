@@ -23,7 +23,8 @@ class Gallery extends React.Component {
       page: 1,
       pages: null,
       imageToDrag: null,
-      imageToDrop: null
+      imageToDrop: null,
+      blackAndWhite: false
     };
   }
 
