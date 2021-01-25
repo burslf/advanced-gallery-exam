@@ -16,6 +16,7 @@
 .more {
   color: white;
   font-size: 35px;
+  z-index: 3;
 }
 .image-root {
   background-size: contain;
@@ -60,8 +61,7 @@
 .black-and-white span {
   font-size: 20px;
 }
-  .unblack {
-  }
+
 
   .drag-over {
     border: 2px dotted white !important;
