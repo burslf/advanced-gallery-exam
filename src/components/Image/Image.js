@@ -80,8 +80,8 @@ class Image extends React.Component {
             className='tools-div'
         >
           <FontAwesome className="image-icon" onClick={() => this.rotatePicture()} name="sync-alt" title="rotate"/>
-          {!this.state.blackAndWhite && <div className="image-icon black-and-white unblack" onClick={() => this.setBlack()}> <span> B&#38;W</span></div>}
-          {this.state.blackAndWhite && <div className="image-icon black-and-white" onClick={() => this.unsetBlack()}> <span> B&#38;W</span></div>}
+          {!this.props.blackAndWhite && <div className="image-icon black-and-white" onClick={() => this.setBlack()}> <span> B&#38;W</span></div>}
+          {this.props.blackAndWhite && <div className="image-icon black-and-white" onClick={() => this.unsetBlack()}> <span> B&#38;W</span></div>}
           <FontAwesome className="image-icon" onClick={() => this.props.deletePicture(this.props.dto.id)} name="trash-alt" title="delete"/>
         </div>
       </div>

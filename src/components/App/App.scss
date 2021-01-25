@@ -15,7 +15,7 @@ body, html {
 
 .app-header {
   color: white;
-  font-size: 20pt;
+  font-size: 20px;
   height: 12vh;
   display: flex;
   justify-content: space-between;
@@ -38,7 +38,7 @@ body, html {
 
 .search {
   height: 100%;
-  width: 70%;
+  width: 85%;
 }
 .search input {
   background-color: transparent;
@@ -54,6 +54,7 @@ body, html {
 .footer {
    color: white;
    position: absolute;
+   background-color: #414651;
    bottom: 0;
    display: flex;
    justify-content: center;
@@ -65,4 +66,11 @@ body, html {
 
 .footer-icon {
   margin-right: 20px;
+}
+
+@media (max-width: 550px) {
+  .search input {
+    font-size: 25px;
+  }
+  
 }

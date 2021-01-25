@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tag: 'art'
+      tag: ''
     };
   }
  
@@ -20,7 +20,7 @@ class App extends React.Component {
       >
         <div className="app-header">
           <div className="logo">
-          <h2>Flickr Gallery</h2>
+            <h2>Flickr Gallery</h2>
           </div>
           <div className="search">
           <input className="app-input" placeholder="type to search" onChange={event => this.setState({tag: event.target.value})} value={this.state.tag}/>

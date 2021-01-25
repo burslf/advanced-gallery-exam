@@ -7,6 +7,7 @@
   grid-gap: 30px;
   height: 73vh;
   overflow-y: scroll;
+  margin-bottom: 35px;
 }
 
 
@@ -56,6 +57,9 @@ font-size: 40px
   color: #ffffff
 }
 
+.modal-picture.blackAndWhite > .image-container > .image-root {
+  filter: grayscale(100%) !important;
+}
 @media only screen and (max-width:550px) {
   .gallery-root {
     grid-gap: 60px;

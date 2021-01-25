@@ -190,7 +190,7 @@ class Gallery extends React.Component {
         onScroll={(e) => this.handleScroll(e)}
       >
           {this.state.images.map((dto, index) => {
-            return <Image id={index} onDrag={e => this.onDrag(e)} dragAndDrop={e => this.dragAndDrop(e)}onDrop={e => this.onDrop(e)}key={'image-' + dto.id} dto={dto} expandPicture={this.expandPicture} deletePicture={this.deletePicture} galleryWidth={this.state.galleryWidth}/>;
+            return <Image id={index} blackAndWhite={this.state.blackAndWhite} setBlack={() => this.setState({blackAndWhite: true})}  unsetBlack={() => this.setState({blackAndWhite: false})} onDrag={e => this.onDrag(e)} dragAndDrop={e => this.dragAndDrop(e)}onDrop={e => this.onDrop(e)}key={'image-' + dto.id} dto={dto} expandPicture={this.expandPicture} deletePicture={this.deletePicture} galleryWidth={this.state.galleryWidth}/>;
           })}
           
             {/* Adding modal for expanded image */}
@@ -201,8 +201,8 @@ class Gallery extends React.Component {
             contentLabel="Example Modal"
           >
             {this.state.dto &&
-              <div className="modal-picture">
-                <Image key={'image-' + this.state.dto.id} dto={this.state.dto} expandPicture={this.expandPicture} deletePicture={this.deletePicture} expanded={this.state.expanded}/>
+              <div className={`modal-picture ${this.state.blackAndWhite && 'blackAndWhite'}`}>
+                <Image key={'image-' + this.state.dto.id} blackAndWhite={this.state.blackAndWhite} setBlack={() => this.setState({blackAndWhite: true})}  unsetBlack={() => this.setState({blackAndWhite: false})} dto={this.state.dto} expandPicture={this.expandPicture} deletePicture={this.deletePicture} expanded={this.state.expanded}/>
               </div>
             }
           </Modal>
