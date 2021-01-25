@@ -202,7 +202,7 @@ class Gallery extends React.Component {
           >
             {this.state.dto &&
               <div className={`modal-picture ${this.state.blackAndWhite && 'blackAndWhite'}`}>
-                <Image key={'image-' + this.state.dto.id} blackAndWhite={this.state.blackAndWhite} setBlack={() => this.setState({blackAndWhite: true})}  unsetBlack={() => this.setState({blackAndWhite: false})} dto={this.state.dto} expandPicture={this.expandPicture} deletePicture={this.deletePicture} expanded={this.state.expanded}/>
+                <Image key={'image-' + this.state.dto.id} modalOpen={this.state.expanded}blackAndWhite={this.state.blackAndWhite} setBlack={() => this.setState({blackAndWhite: true})}  unsetBlack={() => this.setState({blackAndWhite: false})} dto={this.state.dto} expandPicture={this.expandPicture} deletePicture={this.deletePicture} expanded={this.state.expanded}/>
               </div>
             }
           </Modal>

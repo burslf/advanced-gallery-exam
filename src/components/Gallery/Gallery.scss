@@ -30,7 +30,6 @@
   background-color: #e4e4e4;
   height: 70px;
   justify-content: space-between;
-  visibility: visible;
   padding: 25px;
 }
 .modal-picture > .image-container > .tools-div > .image-icon{
@@ -39,6 +38,10 @@ font-size: 40px
 }
 .modal-picture > .image-container > .tools-div > .black-and-white span {
   font-size: 30px;
+}
+
+.modal-picture > .image-container > .more {
+  display: none;
 }
 .modal-close-button {
   font-size: 20px;

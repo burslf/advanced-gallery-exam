@@ -19,7 +19,7 @@
     "test": "karma start",
     "test:watch": "karma start --autoWatch=true --singleRun=false",
     "predeploy": "npm run dist",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d",
     "clean-source": "rimraf README.md src test server.js webpack.config.js .yo-rc.json .travis.yml .eslintrc .editorconfig .babelrc karma.conf.js package.json"
   },
   "repository": "",
