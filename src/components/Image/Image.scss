@@ -50,3 +50,18 @@
     color: #000 !important;
   }
 
+  .black-and-white {
+    border: 1px solid black;
+    padding: 5px;
+    padding-bottom: 0;
+    border-radius: 9px;
+    background-color: white;
+    display: flex;
+  }
+.black-and-white span {
+  font-size: 20px;
+}
+  .unblack {
+    background-color: #4747472d !important;
+    border: none;
+  }

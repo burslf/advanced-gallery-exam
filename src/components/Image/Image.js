@@ -16,7 +16,8 @@ class Image extends React.Component {
     this.state = {
       rotation: 0,
       imageToDrag: null,
-      imageToDrop: null
+      imageToDrop: null,
+      blackAndWhite: false
     };
   }
 
@@ -52,6 +53,8 @@ class Image extends React.Component {
         draggable={true}
         className="image-root"
         style={{
+          // -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+          filter: this.state.blackAndWhite ? 'grayscale(100%)': 'none',
           backgroundImage: `url(${this.urlFromDto(this.props.dto)})`,
           transform: `rotate(${this.state.rotation}deg)`
         }}
@@ -62,11 +65,10 @@ class Image extends React.Component {
       <span className="more">...</span>
         <div
             className='tools-div'
-            // style={{
-            //   transform: `rotate(-${this.state.rotation}deg)` // Keep the tools not rotating
-            // }}
         >
           <FontAwesome className="image-icon" onClick={() => this.rotatePicture()} name="sync-alt" title="rotate"/>
+          {!this.state.blackAndWhite && <div className="image-icon black-and-white unblack" onClick={() => this.setState({blackAndWhite: true})}> <span> B&#38;W</span></div>}
+          {this.state.blackAndWhite && <div className="image-icon black-and-white" onClick={() => this.setState({blackAndWhite: false})}> <span> B&#38;W</span></div>}
           <FontAwesome className="image-icon" onClick={() => this.props.deletePicture(this.props.dto.id)} name="trash-alt" title="delete"/>
           {/* <FontAwesome className="image-icon" onClick={() => this.props.expandPicture(this.props.dto)} name="expand" title="expand"/> */}
         </div>
