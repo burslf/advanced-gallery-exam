@@ -10,10 +10,11 @@ This app is simple, you write a tag at the top and you get images from flickr wi
 # Features :
 
 ## Your Tasks
-1. Black & White
-2. Rotate
-3. Expand
-4. Responsive:  
-5. Infinite Scroll
-6. Drag & Drop: 
-7. Delete
+1. Random background color
+2. Black & White
+3. Rotate
+4. Expand
+5. Responsive:  
+6. Infinite Scroll
+7. Drag & Drop: 
+8. Delete
