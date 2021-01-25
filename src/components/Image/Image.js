@@ -80,7 +80,7 @@ class Image extends React.Component {
        {(this.state.more || this.props.modalOpen)&& <div
             className='tools-div'
         >
-          <span className="show-less" onClick={() => this.setState({more: false})}> X </span>
+          {!this.props.modalOpen && <span className="show-less" onClick={() => this.setState({more: false})}> X </span>}
           <FontAwesome className="image-icon" onClick={() => this.rotatePicture()} name="sync-alt" title="rotate"/>
           {!this.props.blackAndWhite && <div className="image-icon black-and-white" onClick={() => this.setBlack()}> <span> B&#38;W</span></div>}
           {this.props.blackAndWhite && <div className="image-icon black-and-white" onClick={() => this.unsetBlack()}> <span> B&#38;W</span></div>}
