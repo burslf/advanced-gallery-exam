@@ -44,13 +44,13 @@ font-size: 40px
 .modal-picture > .image-container > .more {
   display: none;
 }
-.modal-close-button {
+.close-modal {
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
   padding: 4px;
   border-radius: 50%; 
-  border: 1px solid #ffffff;
+  border: 1px solid #000000;
   background-color: #222222;
   width: 25px;
   height: 25px;
@@ -58,7 +58,11 @@ font-size: 40px
   justify-content: center;
   align-items: center;
   font-weight: 600;
-  color: #ffffff
+  color: #ffffff;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
 }
 
 .modal-picture.blackAndWhite > .image-container > .image-root {

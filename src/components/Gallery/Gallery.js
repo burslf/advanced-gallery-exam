@@ -199,7 +199,9 @@ class Gallery extends React.Component {
             onRequestClose={this.expandPicture.bind(this)}
             style={this.modalStyle}
             contentLabel="Example Modal"
+            
           >
+            {this.state.expanded && <span className="close-modal" onClick={() => this.setState({expanded: false})}> X </span>}
             {this.state.dto &&
               <div className={`modal-picture ${this.state.blackAndWhite && 'blackAndWhite'}`}>
                 <Image key={'image-' + this.state.dto.id} modalOpen={this.state.expanded}blackAndWhite={this.state.blackAndWhite} setBlack={() => this.setState({blackAndWhite: true})}  unsetBlack={() => this.setState({blackAndWhite: false})} dto={this.state.dto} expandPicture={this.expandPicture} deletePicture={this.deletePicture} expanded={this.state.expanded}/>
